@@ -131,11 +131,11 @@ p{
 button:focus{
     outline: none;
 }
-/* @media (min-width: 1200px){
-    .container, .container-lg, .container-md, .container-sm, .container-xl {
-        max-width: 1200px;
-    }
-} */
+
+.row{
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
 
 header{
     background-color: #ffffff;
@@ -148,13 +148,19 @@ header{
     transition:all 0.6s ease;
 }
 
+header .col-md-3.col-4{
+    padding-right: 0px;
+}
+
 /* header [class*='col-']{padding: 0} */
 
 nav.navbar{
     /* width: 77%; */
     padding: 16px 0 19px 0;
+    display: -ms-flexbox;
     display: flex;
     align-items: center;
+    -ms-flex-align: center;
 }
 
 nav > .logo{
@@ -182,8 +188,10 @@ nav > .logo > a{
 
 ul.navbar-nav{
     width: 100%;
+    display: -ms-flexbox;
     display: flex;
     justify-content: space-around;
+    -ms-flex-pack: distribute
 }
 
 @media (min-width: 992px){
@@ -215,19 +223,24 @@ nav ul > li > a:hover{
 .profile_info{
     background-color: #2f4858;
     border-radius:  0 0 0 40px;
-    padding: 16px 0 19px 0;
+    padding: 16px 0 19px 55px;
+    display: -ms-flexbox;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    -ms-flex-align: center;
 }
 .profile_info .profile_img{
-    width: 70px;
-    height: 70px;
     overflow: hidden;
-    border-radius: 50%;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    -ms-flex-align: center;
+    
 }
 .profile_info .profile_img img{
-    width: 100%;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
 }
 .profile_info a{
     font-family: 'Myriad Pro',sans-serif ;
@@ -235,6 +248,7 @@ nav ul > li > a:hover{
     line-height: 35px;
     color: #fff;
     text-transform: capitalize;
+    margin-left: 30px;
 }
 
 .employee_body{
@@ -279,8 +293,10 @@ nav ul > li > a:hover{
 .selectpickers{
     border: none;
     float: none;
+    display: -ms-flexbox;
     display: flex;
     align-items: center;
+    -ms-flex-align: center;
     background: linear-gradient(90deg, #ffffff 85%, #dfe0df 15%);
     padding-left: 10px;
     padding-right: 15%;
@@ -306,21 +322,33 @@ nav ul > li > a:hover{
 
 .skill_circular{
     height: 70%;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    -ms-flex-pack: center;
     align-items: center;
+    -ms-flex-align: center;
 }
 
 .progress-circle{
     margin: 0;
-    background-color: #dbdbdb;
+    background-color: transparent;
     width: 250px;
     height: 250px;
     border: 15px solid #1b2f3c;
+    display: -ms-flexbox;
     display: flex;
     align-items: center;
+    -ms-flex-align: center;
     justify-content: center;
+    -ms-flex-pack: center;
+}
+
+.progress-circle, .left-half-clipper, .first50-bar,.value-bar{
+    -webkit-box-shadow: inset 0px 0px 12px 0px rgba(27,47,60,0.66);
+    -moz-box-shadow: inset 0px 0px 12px 0px rgba(27,47,60,0.66);
+    box-shadow: inset 0px 0px 12px 0px rgba(27,47,60,0.66);
 }
 
 .progress-circle:after{
@@ -331,6 +359,9 @@ nav ul > li > a:hover{
     transform: translate(-50%, -50%);
     background-color: #2f4858;
     border: 15px solid #1b2f3c;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(27,47,60,0.66);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(27,47,60,0.66);
+    box-shadow: 0px 0px 12px 0px rgba(27,47,60,0.66);
 }
 
 .progress-circle span{
@@ -339,12 +370,19 @@ nav ul > li > a:hover{
     font-size: 60px;/*88*/
     font-family: 'Roboto-Bold', sans-serif;
     line-height: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .left-half-clipper{
     width: 100%;
     height: 100%;
     clip: rect(0, 250px, 250px, 125px);
+    background-color: #dbdbdb;
+    top: 0;
+    left: 0;
 }
 .progress-circle.over50 .first50-bar{
     width: 100%;
@@ -382,20 +420,41 @@ nav ul > li > a:hover{
 
 .slider_for{
     align-items: center;
+    -ms-flex-align: center;
 }
 
 .slick-track{
+    display: -ms-flexbox;
     display: flex;
     align-items: center;
+    -ms-flex-align: center;
 }
 
 .slider_nav{
     background-color: #ffffff;
     border-radius: 12px;
     position: relative;
-    padding: 30px 45px 42px 45px;
+    padding: 30px 45px 22px 45px;
     margin: 33px 18px 60px 18px;
+    overflow: hidden;
 }
+
+.slide_nav_progress {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    width: 100%;
+    height: 7px;
+    overflow: hidden;
+    
+    background-color: #ffffff;
+    background-image: linear-gradient(to right, #fcb641, #fcb641);
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    transition: background-size .4s ease-in-out;
+  }
 
 .slider_nav .single_slider_item{
     position: relative;
@@ -403,6 +462,9 @@ nav ul > li > a:hover{
     padding: 28px 50px;
     background-color: #dfe0df;
     margin: 0 15px;
+    -webkit-box-shadow: 0px 5px 10px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 5px 10px 1px rgba(0,0,0,0.3);
+    box-shadow: 0px 5px 10px 1px rgba(0,0,0,0.3);
 }
 
 .slider_nav .single_slider_item.slick-active.slick-center{
@@ -417,11 +479,13 @@ nav ul > li > a:hover{
     font-family: 'Roboto-Bold', sans-serif;
     font-size: 15px;
     line-height: 23px;
+    color: #898989;
 }
 
 .slider_nav .single_slider_item h4{
     font-family: 'Roboto-Regular', sans-serif;
     font-size: 20px;
+    color: #8e8e8e;
 }
 
 .slider_nav .slick-arrow{
@@ -441,7 +505,7 @@ nav ul > li > a:hover{
 .slider__counter {
     font-family: 'Roboto-Bold', sans-serif;
     position: absolute;
-    bottom: 0;
+    bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -457,6 +521,13 @@ nav ul > li > a:hover{
     background-color: #c6c8c6;
     margin: 0 15px;
     height: 326px;
+    -webkit-box-shadow: 0px 5px 10px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 5px 10px 1px rgba(0,0,0,0.3);
+    box-shadow: 0px 5px 10px 1px rgba(0,0,0,0.3);
+}
+
+.slick-list{
+    padding-bottom: 20px !important;
 }
 
 .slider_for .single_slider_item.slick-active.slick-center{
@@ -470,9 +541,10 @@ nav ul > li > a:hover{
 
 .slider_for .single_slider_item h4{
     font-family: 'Roboto-Regular', sans-serif;
-    font-size: 25px;
+    font-size: 24.4px;
     line-height: 24px;
     margin-bottom: 40px;
+    color: #8e8e8e;
 }
 
 .slider_for .single_slider_item h2{
@@ -480,13 +552,11 @@ nav ul > li > a:hover{
     font-size: 50px;
     line-height: 50px;
     margin-bottom: 25px;
+    color: #8e8e8e;
 }
-
-.buttons{}
-
 .buttons > a{
     font-family: 'Roboto-Bold', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 26px;
     padding: 12px 27px;
     color: #818181;
@@ -519,6 +589,15 @@ nav ul > li > a:hover{
 .manager_body, .employee_skill_body{
     height: 827px;
     padding-top: 2px;
+}
+
+.manager_body .nice-select.wide .list{
+    height: 124px;
+    overflow-y: scroll;
+}
+
+.manager_body .col-md-3, .employee_skill_body .col-md-3{
+    padding-right: 0;
 }
 
 .manager_skill{
@@ -571,34 +650,65 @@ nav ul > li > a:hover{
 
 .pending_action{
     height: 94%;
-    padding: 25px 17px;
+    padding: 25px 25px 25px 17px;
     overflow-y: auto;
     position: relative;
 }
 /* width */
-.pending_action::-webkit-scrollbar,.skill_top::-webkit-scrollbar, .skill_bottom::-webkit-scrollbar, .variries_skill::-webkit-scrollbar {
-    width: 18px;
-}
+/* .pending_action::-webkit-scrollbar,.skill_bottom::-webkit-scrollbar, .variries_skill::-webkit-scrollbar {
+    width: 0px;
+} */
 
 /* Track */
-.pending_action::-webkit-scrollbar-track,.skill_top::-webkit-scrollbar-track, .skill_bottom::-webkit-scrollbar-track, .variries_skill::-webkit-scrollbar-track {
-    margin: 20px 0px;
+/* .pending_action::-webkit-scrollbar-track, .skill_bottom::-webkit-scrollbar-track, .variries_skill::-webkit-scrollbar-track {
+    margin: 0px 0px;
     background: #c6c8c6;
-    border-radius: 10px;
+    border-radius: 0px;
     box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-}
+} */
 
 /* Handle */
-.pending_action::-webkit-scrollbar-thumb,.skill_top::-webkit-scrollbar-thumb, .skill_bottom::-webkit-scrollbar-thumb, .variries_skill::-webkit-scrollbar-thumb {
+/* .pending_action::-webkit-scrollbar-thumb, .skill_bottom::-webkit-scrollbar-thumb, .variries_skill::-webkit-scrollbar-thumb {
     background: #2f4858;
-    border-radius: 10px;
-    border: 3px solid #c6c8c6;
-}
+    border-radius: 0px;
+    border: 0px solid #c6c8c6;
+} */
 
 /* Handle on hover */
-.pending_action::-webkit-scrollbar-thumb:hover, .pending_action::-webkit-scrollbar-thumb:hover, .skill_bottom::-webkit-scrollbar-thumb:hover, .variries_skill::-webkit-scrollbar-thumb:hover {
+/* .pending_action::-webkit-scrollbar-thumb:hover, .skill_bottom::-webkit-scrollbar-thumb:hover, .variries_skill::-webkit-scrollbar-thumb:hover {
     background: #2f4858;
+} */
+
+.simplebar-scrollbar::before {
+    content: "\2261";
+    font-family: 'Font Awesome 5 Free';
+    background: #2f4858;
+    color: #fff;
+    border-radius: 10px;
+    border: 1px solid #c6c8c6;
+    opacity: 1;
+    transition: none;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    -ms-flex-pack: center;
+    align-items: center;
+    -ms-flex-align: center;
+    font-size: 15px;
+}
+.simplebar-scrollbar.simplebar-visible:before{
+    opacity: 1;
+    transition: none;
+}
+.simplebar-track.simplebar-vertical {
+    margin: 20px 0;
+    width: 18px;
+    background-color: #c6c8c6;
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 .single_pending{
@@ -613,9 +723,12 @@ nav ul > li > a:hover{
 }
 
 .single_pending > ul > li{
+    display: -ms-flexbox;
     display: flex;
     justify-content: space-between;
+    -ms-flex-pack: justify;
     align-items: center;
+    -ms-flex-align: center;
 }
 
 .single_pending > ul > li:not(:last-child) {
@@ -661,14 +774,22 @@ nav ul > li > a:hover{
 
 .skill_top{
     padding-bottom: 40px;
-    border-bottom: 1px solid #c6c8c6;
-    height: 276px;
-    overflow-y: scroll;
+    height: 264px;
+    overflow-y: auto;
+}
+
+.employee_skill_body hr {
+    width: 100%;
+    height: 1px;
+    background-color: #c6c8c6;
+    margin-top: 1px;
+    margin-bottom: 0;
 }
 
 .skill_head{
     width: 100%;
     padding-bottom: 49px;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -696,10 +817,11 @@ nav ul > li > a:hover{
 
 .single_skill_details{
     width: 100%;
+    display: -ms-flexbox;
     display: flex;
 }
 .single_skill_details:not(:last-child) {
-    margin-bottom: 30px;
+    margin-bottom: 26px;
 }
 .single_skill_details .skill_name{width: calc(100% / 3.3)}
 .single_skill_details .skill_name h4{
@@ -710,7 +832,6 @@ nav ul > li > a:hover{
 
 .single_skill_details .skill_p_bar{
     width: calc(100% / 2);
-    /* padding: 0 30px 0 0; */
 }
 .progress{
     height: 36px;
@@ -750,8 +871,8 @@ nav ul > li > a:hover{
 
 .skill_bottom{
     margin-top: 55px;
-    height: 262px;
-    overflow-y: scroll;
+    height: 264px;
+    overflow-y: auto;
 }
 
 .employee_skill_body .white_sidebar{
@@ -767,8 +888,10 @@ nav ul > li > a:hover{
 
 .dual_progress{
     margin-top: 20px;
+    display: -ms-flexbox;
     display: flex;
     justify-content: space-between;
+    -ms-flex-pack: justify;
 }
 
 .single_overall_progress.mt-30{
@@ -776,9 +899,11 @@ nav ul > li > a:hover{
 }
 
 .single_overall_progress{
+    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    -ms-flex-pack: center;
     text-align: center;
 }
 
@@ -805,8 +930,19 @@ nav ul > li > a:hover{
 .single_overall_progress .value-bar {
     clip: rect(0, 50px, 100px, 0);
 }
+.single_overall_progress .progress-circle, .single_overall_progress .left-half-clipper, .single_overall_progress .first50-bar, .single_overall_progress .value-bar{
+    -webkit-box-shadow: inset 0px 0px 5px 0px rgba(27,47,60,0.66);
+    -moz-box-shadow: inset 0px 0px 5px 0px rgba(27,47,60,0.66);
+    box-shadow: inset 0px 0px 5px 0px rgba(27,47,60,0.66);
+}
+
+.single_overall_progress .progress-circle:after{
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(27,47,60,0.66);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(27,47,60,0.66);
+    box-shadow: 0px 0px 5px 0px rgba(27,47,60,0.66);
+}
 .single_overall_progress p{
-    margin-top: 16px;
+    margin-top: 13px;
     font-family: 'Roboto-Medium', sans-serif;
     font-size: 16px;
     color: #2f4858;
@@ -828,9 +964,12 @@ nav ul > li > a:hover{
 }
 
 .learning_head{
+    display: -ms-flexbox;
     display: flex;
     justify-content: space-between;
+    -ms-flex-pack: justify;
     align-items: center;
+    -ms-flex-align: center;
 }
 
 .learning_head .skill_select{
@@ -888,14 +1027,17 @@ nav ul > li > a:hover{
 .variries_skill{
     margin-top: 85px;
     height: 485px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .single_varities_skill{
     padding-right: 20px;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-evenly;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
     align-items: center;
+    -ms-flex-align: center;
 }
 
 .single_varities_skill:not(:last-child) {
@@ -914,9 +1056,12 @@ nav ul > li > a:hover{
 
 .single_varities_skill .view_or_request{
     width: calc(100% / 4);
+    display: -ms-flexbox;
     display: flex;
     justify-content: space-between;
+    -ms-flex-pack: justify;
     align-items: center;
+    -ms-flex-align: center;
 }
 
 .single_varities_skill .view_or_request a{
@@ -938,9 +1083,12 @@ nav ul > li > a:hover{
 
 .single_varities_skill .select_or_assign{
     width: calc(100% / 2);
+    display: -ms-flexbox;
     display: flex;
     justify-content: space-between;
+    -ms-flex-pack: justify;
     align-items: center;
+    -ms-flex-align: center;
     padding-left: 20px;
 }
 
@@ -949,15 +1097,19 @@ nav ul > li > a:hover{
     background-color: #c6c8c6;
     border-radius: 30px;
     padding: 5px 20px;
+    display: -ms-flexbox;
     display: flex;
     justify-content: space-between;
+    -ms-flex-pack: justify;
     align-items: center;
+    -ms-flex-align: center;
 
 }
 
 .single_varities_skill .select_or_assign .roadmap_name p{
     color: #2f4858;
     font-size: 16px;
+    font-family: 'Roboto-Medium', sans-serif;
 }
 
 .single_varities_skill .select_or_assign .roadmap_name .select_skill{
@@ -983,14 +1135,17 @@ nav ul > li > a:hover{
     padding: 5px 15px;
     text-align: center;
     color: #2f4858;
+    font-family: 'Roboto-Medium', sans-serif;
 }
 
 /* Footer Area */
 footer{
     background-color: #fcb641;
     padding: 62px 0 32px 0;
+    display: -ms-flexbox;
     display: flex;
     justify-content: space-between;
+    -ms-flex-pack: justify;
 }
 
 footer > .footer_logo{
@@ -1007,8 +1162,164 @@ footer > .footer_logo > a{
 /************************************************
 ============= Responsive CSS ==================
 *************************************************/
+/* @media screen and (max-width: 1920px) and (min-width: 1750px){
+    nav ul > li > a{font-size: 35px;}
+} */
+@media only screen and (min-width: 1750px){
+    nav > .logo, nav ul > li > a{
+        padding: 24px 0 !important;
+    }
+    nav > .logo > a{
+        font-size: 36.04px;
+    }
+    nav ul > li > a{
+        font-size: 25px;
+    }
+    .profile_info{
+        padding: 21px 0 29px 55px;
+    }
+    .profile_info a{
+        font-size: 30px;
+        margin-left: 37px;
+    }
+    .skill_header h3{
+        font-size: 35px;
+        line-height: 37px;
+    }
+    .selectpickers, .selectpickers span{
+        font-size: 21.58px;
+    }
+    .skill_header .select_skill.wide{
+        width: 68%;
+    }
+    .progress-circle{
+        width: 332px;
+        height: 332px;
+    }
+    .progress-circle, .progress-circle:after{
+        border: 17px solid #1b2f3c;
+    }
+    .progress-circle span{
+        font-size: 88.14px;
+    }
+    .left-half-clipper, .progress-circle.over50 .first50-bar{clip: rect(0, 332px, 332px, 166px)}
+    .value-bar{clip: rect(0, 166px, 332px, 0)}
+    .skill_circular h4{font-size: 22.56px;}
+    .slider_nav{
+        padding: 30px 96px 30px 96px;
+        margin: 33px 21px 60px 18px;
+    }
+    .slider_nav .single_slider_item{
+        padding: 28px 30px 28px 50px;
+        box-sizing: border-box;
+    }
+    .slider_nav .slick-list {
+        margin: 0 -37px;
+    }
+    .slider_area > a{
+        font-size: 18px;
+        right: 2%;
+    }
+    .slider_nav .single_slider_item h5{
+        margin-bottom: 18px;
+    }
+    .slider_for .single_slider_item.slick-active h2{font-size: 53px}
+    .slider_for .single_slider_item h2{font-size: 47px}
+    .slider_for .single_slider_item h3{font-size: 52px;}
+    .learning_body {padding: 42px 22px 51px 32px}
+    .learning_bodyInnr {padding: 48px 31px 73px 48px}
+    .learning_head .skill_select .select_skill, .learning_head .search_skill form input{
+        height: 61px;
+        border-radius: 30px;
+    }
+    .learning_head .skill_select .select_skill.selectpickers, .learning_head .skill_select .select_skill.selectpickers > span{
+        font-size: 40px;
+        color: #2f4858;
+    }
+    .learning_head .skill_select .select_skill.selectpickers{
+        padding-left: 25px;
+    }
+    .learning_head .search_skill form input{font-size: 26.8px}
+    .variries_skill{height: 467px;}
+    .single_varities_skill .coatching_name h5{font-size: 34.55px;}
+    .single_varities_skill .view_or_request a{font-size: 20.73px;}
+    .single_varities_skill .select_or_assign .roadmap_name p{font-size: 20.73px;}
+    .single_varities_skill .select_or_assign .roadmap_name .select_skill, .single_varities_skill .select_or_assign .roadmap_name .select_skill span{font-size: 20.73px;}
+    .single_varities_skill .select_or_assign a{font-size: 20.73px;}
+    .employee_skill_body .col-md-9 {
+        padding: 25px 36px 69px 33px;
+    }
+    .multiple_skills {padding: 36px 48px 34px 43px}
+    .skill_head h5{font-size: 25px}
+    .single_skill_details .skill_name h4{font-size: 36.4px}
+    .single_skill_details .skill_p_bar h6{font-size: 22.5px}
+    .progress p{font-size: 25.13px}
+    .single_skill_details .skill_month h5{font-size: 25.13px}
+    .single_skill_details:not(:last-child) {margin-bottom: 26px}
+    .skill_top{height: 263px}
+    .skill_bottom{height: 263px}
+    .overall_progress{
+        height: 42%;
+        margin-bottom: 10px;
+    }
+    .single_overall_progress .progress-circle {
+        width: 124px;
+        height: 124px;
+    }
+    .single_overall_progress .progress-circle:after{
+        width: 75%;
+        height: 75%;
+    }
+    .single_overall_progress .progress-circle span{
+        font-size: 31.64px;
+    }
+    .single_overall_progress .value-bar {
+        clip: rect(0, 62px, 124px, 0);
+    }
+    .single_overall_progress .progress-circle.over50 .first50-bar {
+        clip: rect(0, 124px, 124px, 62px);
+    }
+    .dual_progress {
+        width: 85%;
+        margin: 0 auto;
+    }
+    .employee_skill_body .white_sidebar {
+        padding-top: 10px;
+    }
+    .single_overall_progress.mt-30{
+        margin-top: -40px;
+    }
+    .single_overall_progress p{font-size: 17.73px}
+    .employee_skill_body .pending_action .single_pending > ul > li p {
+        font-size: 22.18px;
+        line-height: 31px;
+    }
+    .employee_skill_body .pending_action {
+        height: 50%;
+        padding: 5px 30px 5px 20px;
+    }
+    .single_pending {
+        padding: 17px 0 18px 39px;
+    }
+    .white_sidebar h2{
+        font-size: 36.4px;
+    }
+    .manager_skill .skill_circular .selectpickers, .manager_skill .skill_circular .selectpickers span{
+        font-size: 25px;
+    }
+    .single_pending > ul > li p {
+        font-size: 22.18px;
+        line-height: 24px;
+    }
+    .pending_action {
+        padding: 25px 30px 25px 20px;
+    }
+}
+
 @media screen and (max-width:1199px){
     nav ul > li > a{font-size: 15px;}
+    .profile_info{padding: 16px 0 19px 30px}
+    .profile_info a{margin-left: 15px}
     .skill_header .select_skill.wide{width: 95%}
     .selectpickers, .selectpickers span{font-size: 15px}
     .skill_circular h4{font-size: 16px}
@@ -1019,7 +1330,7 @@ footer > .footer_logo > a{
     .progress-circle span{font-size: 40px}
     .left-half-clipper, .progress-circle.over50 .first50-bar{clip: rect(0, 180px, 180px, 90px)}
     .value-bar{clip: rect(0, 90px, 180px, 0)}
-    .slider_nav{padding: 30px 40px 42px 30px}
+    .slider_nav{padding: 30px 40px 22px 30px}
     .slider_area > a{right: 3%}
     .slider_nav .single_slider_item{padding: 28px 25px}
     .slider_for .single_slider_item{padding: 60px 70px 90px 70px}
@@ -1029,14 +1340,6 @@ footer > .footer_logo > a{
     .manager_skill .skill_circular .select_skill{bottom: 12%}
     .white_sidebar h2{font-size: 24px}
     .pending_action::-webkit-scrollbar,.skill_top::-webkit-scrollbar, .skill_bottom::-webkit-scrollbar, .variries_skill::-webkit-scrollbar {width: 12px}
-    /* .pending_action::-webkit-scrollbar-track,.skill_top::-webkit-scrollbar-track, .skill_bottom::-webkit-scrollbar-track, .variries_skill::-webkit-scrollbar-track {
-        margin: 20px 0px;
-    }
-    .pending_action::-webkit-scrollbar-thumb,.skill_top::-webkit-scrollbar-thumb, .skill_bottom::-webkit-scrollbar-thumb, .variries_skill::-webkit-scrollbar-thumb {
-        background: #2f4858;
-        border-radius: 10px;
-        border: 3px solid #c6c8c6;
-    } */
     .single_pending{padding: 16px 0 18px 16px}
     .single_pending > ul > li p {font-size: 13px}
     .single_pending > ul > li .buttons > a{padding: 0 14px}
@@ -1064,6 +1367,9 @@ footer > .footer_logo > a{
 
     /* Employe Page */
     .skill_head h5{font-size: 13px}
+    .skill_top, .skill_bottom{
+        height: 231px;
+    }
     .single_skill_details .skill_name h4{font-size: 19px}
     .progress{height: 25px}
     .progress p{font-size: 16px}
@@ -1103,10 +1409,18 @@ footer > .footer_logo > a{
         font-size: 20px;
         padding: 10px 0;
     }
-    .profile_info{border-radius:0 0 0 25px;}
-    .profile_info .profile_img{
+    .profile_info{
+        border-radius:0 0 0 25px;
+        padding: 16px 0 19px 0px;
+        justify-content: center;
+        -ms-flex-pack: center;
+    }
+    .profile_info .profile_img img{
         width: 50px;
         height: 50px;
+    }
+    .profile_info a{
+        margin-left: 10px;
     }
     .employee_body .employee_circle_skill{
         border-radius: 0 25px 0 0;
@@ -1118,7 +1432,7 @@ footer > .footer_logo > a{
         font-size: 12px;
     }
     .slider_nav {
-        padding: 20px 30px 30px 30px;
+        padding: 20px 30px 10px 30px;
     }
     .slider_nav .single_slider_item {
         padding: 20px 20px;
@@ -1147,19 +1461,52 @@ footer > .footer_logo > a{
         width: 130px;
         height: 130px;
     }
+    .progress-circle, .left-half-clipper, .first50-bar, .value-bar {
+        -webkit-box-shadow: inset 0px 0px 8px 0px rgba(27,47,60,0.66);
+        -moz-box-shadow: inset 0px 0px 8px 0px rgba(27,47,60,0.66);
+        box-shadow: inset 0px 0px 8px 0px rgba(27,47,60,0.66);
+    }
+    .progress-circle, .progress-circle:after{
+        border: 8px solid #1b2f3c;
+        -webkit-box-shadow: 0px 0px 8px 0px rgba(27,47,60,0.66);
+        -moz-box-shadow: 0px 0px 8px 0px rgba(27,47,60,0.66);
+        box-shadow: 0px 0px 8px 0px rgba(27,47,60,0.66);
+    }
     .progress-circle span{font-size: 32px}
     .left-half-clipper, .progress-circle.over50 .first50-bar{clip: rect(0, 130px, 130px, 65px)}
     .value-bar{clip: rect(0, 65px, 130px, 0)}
-    .progress-circle, .progress-circle:after{border: 8px solid #1b2f3c;}
     .manager_skill .skill_circular h3 {
         font-size: 20px;
+    }
+    .simplebar-scrollbar::before {
+        border-radius: 10px;
+        border: 0.5px solid #c6c8c6;
+        opacity: 1;
+        font-size: 8px;
+        width: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .simplebar-track.simplebar-vertical {
+        margin: 20px 0;
+        width: 6px;
+        border-radius: 10px;
+        box-shadow: inset 0 0 1px rgba(0,0,0,0.5);
+        -moz-box-shadow: inset 0 0 1px rgba(0,0,0,0.5);
+        -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.5);
+    }
+    .manager_body .white_sidebar{
+        padding-right: 3px;
     }
     .white_sidebar h2 {
         font-size: 18px;
     }
-    .pending_action{padding: 25px 2px 25px 5px}
+    .pending_action{padding: 25px 5px 25px 4px}
     .single_pending {
-        padding: 16px 0 18px 5px;
+        padding: 16px 0 18px 2px;
+    }
+    .single_pending > ul > li p {
+        font-size: 11px;
     }
     .single_pending > ul > li p:last-child{
         padding-left: 10px;
@@ -1196,6 +1543,16 @@ footer > .footer_logo > a{
         height: 60px;
         width: 60px;
         border: 4px solid #1b2f3c;
+    }
+    .single_overall_progress .progress-circle, .single_overall_progress .left-half-clipper, .single_overall_progress .first50-bar, .single_overall_progress .value-bar {
+        -webkit-box-shadow: inset 0px 0px 2px 0px rgba(27,47,60,0.66);
+        -moz-box-shadow: inset 0px 0px 2px 0px rgba(27,47,60,0.66);
+        box-shadow: inset 0px 0px 2px 0px rgba(27,47,60,0.66);
+    }
+    .single_overall_progress .progress-circle:after {
+        -webkit-box-shadow: 0px 0px 2px 0px rgba(27,47,60,0.66);
+        -moz-box-shadow: 0px 0px 2px 0px rgba(27,47,60,0.66);
+        box-shadow: 0px 0px 2px 0px rgba(27,47,60,0.66);
     }
     .single_overall_progress .progress-circle:after{
         width: 85%;
@@ -1274,7 +1631,7 @@ footer > .footer_logo > a{
         padding: 12px 0 15px 0;
         border-radius: 0 0 0 20px;
     }
-    .profile_info .profile_img {
+    .profile_info .profile_img img {
         width: 45px;
         height: 45px;
     }
@@ -1303,7 +1660,7 @@ footer > .footer_logo > a{
         padding-bottom: 30px;
     }
     .slider_nav{
-        padding: 25px 30px;
+        padding: 25px 30px 5px 30px;
         margin: 20px 20px 40px 20px;
     }
     .slider_for .single_slider_item{
@@ -1437,12 +1794,13 @@ footer > .footer_logo > a{
     .profile_info {
         padding: 10px 5px;
     }
-    .profile_info .profile_img {
+    .profile_info .profile_img img {
         width: 35px;
         height: 35px;
     }
     .profile_info a {
         font-size: 14px;
+        margin-left: 5px;
     }
     .mynav {
         top: 54px;
@@ -1482,8 +1840,6 @@ footer > .footer_logo > a{
     .skill_circular {
         padding: 20px 0;
     }
-    .pending_action::-webkit-scrollbar,.skill_top::-webkit-scrollbar, .skill_bottom::-webkit-scrollbar, .variries_skill::-webkit-scrollbar {width: 8px}
-    .pending_action::-webkit-scrollbar-thumb,.skill_top::-webkit-scrollbar-thumb, .skill_bottom::-webkit-scrollbar-thumb, .variries_skill::-webkit-scrollbar-thumb {border: 1px solid #c6c8c6} 
     .manager_skill .skill_circular .progress-circle {
         margin-top: 25px;
     }
@@ -1595,12 +1951,13 @@ footer > .footer_logo > a{
 
 @media screen and (max-width:380px){
     .profile_info {
-        padding: 10px 0 10px 1px;
+        padding: 14px 0 16px 1px;
     }
     .profile_info a {
         font-size: 13px;
+        margin-left: 3px;
     }
-    .profile_info .profile_img {
+    .profile_info .profile_img img {
         width: 25px;
         height: 25px;
     }
