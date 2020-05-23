@@ -577,12 +577,17 @@ nav ul > li > a:hover{
 
 .slider_for .single_slider_item h3{
     font-family: 'Roboto-Bold', sans-serif;
-    font-size: 49px;
+    font-size: 39px;
     line-height: 47px;
-    color: #6c7983;
+    color: #aeafae;
     position: absolute;
     bottom: 5%;
     right: 5%;
+}
+
+.slider_for .single_slider_item.slick-active h3{
+    color: #596d79;
+    font-size: 47px;
 }
 
 /* Manager Page */
@@ -654,31 +659,6 @@ nav ul > li > a:hover{
     overflow-y: auto;
     position: relative;
 }
-/* width */
-/* .pending_action::-webkit-scrollbar,.skill_bottom::-webkit-scrollbar, .variries_skill::-webkit-scrollbar {
-    width: 0px;
-} */
-
-/* Track */
-/* .pending_action::-webkit-scrollbar-track, .skill_bottom::-webkit-scrollbar-track, .variries_skill::-webkit-scrollbar-track {
-    margin: 0px 0px;
-    background: #c6c8c6;
-    border-radius: 0px;
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-} */
-
-/* Handle */
-/* .pending_action::-webkit-scrollbar-thumb, .skill_bottom::-webkit-scrollbar-thumb, .variries_skill::-webkit-scrollbar-thumb {
-    background: #2f4858;
-    border-radius: 0px;
-    border: 0px solid #c6c8c6;
-} */
-
-/* Handle on hover */
-/* .pending_action::-webkit-scrollbar-thumb:hover, .skill_bottom::-webkit-scrollbar-thumb:hover, .variries_skill::-webkit-scrollbar-thumb:hover {
-    background: #2f4858;
-} */
 
 .simplebar-scrollbar::before {
     content: "\2261";
@@ -702,7 +682,7 @@ nav ul > li > a:hover{
     transition: none;
 }
 .simplebar-track.simplebar-vertical {
-    margin: 20px 0;
+    margin: 0;
     width: 18px;
     background-color: #c6c8c6;
     border-radius: 10px;
@@ -819,6 +799,7 @@ nav ul > li > a:hover{
     width: 100%;
     display: -ms-flexbox;
     display: flex;
+    padding-right: 35px;
 }
 .single_skill_details:not(:last-child) {
     margin-bottom: 26px;
@@ -1031,7 +1012,7 @@ nav ul > li > a:hover{
 }
 
 .single_varities_skill{
-    padding-right: 20px;
+    padding-right: 40px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: distribute;
@@ -1041,7 +1022,7 @@ nav ul > li > a:hover{
 }
 
 .single_varities_skill:not(:last-child) {
-    margin-bottom: 74px;
+    margin-bottom: 71px;
 }
 
 .single_varities_skill .coatching_name{
@@ -1071,6 +1052,9 @@ nav ul > li > a:hover{
     background-color: #ffffff;
     font-size: 13px;
     padding: 5px 10px;
+    height: 35px;
+    display: flex;
+    align-items: center;
 }
 
 .single_varities_skill .view_or_request a:first-child{
@@ -1096,7 +1080,7 @@ nav ul > li > a:hover{
     width: 80%;
     background-color: #c6c8c6;
     border-radius: 30px;
-    padding: 5px 20px;
+    padding: 1px 20px;
     display: -ms-flexbox;
     display: flex;
     justify-content: space-between;
@@ -1110,6 +1094,9 @@ nav ul > li > a:hover{
     color: #2f4858;
     font-size: 16px;
     font-family: 'Roboto-Medium', sans-serif;
+    height: 36px;
+    display: flex;
+    align-items: center;
 }
 
 .single_varities_skill .select_or_assign .roadmap_name .select_skill{
@@ -1136,12 +1123,13 @@ nav ul > li > a:hover{
     text-align: center;
     color: #2f4858;
     font-family: 'Roboto-Medium', sans-serif;
+    height: 36px;
 }
 
 /* Footer Area */
 footer{
     background-color: #fcb641;
-    padding: 62px 0 32px 0;
+    padding: 35px 0 25px 0;
     display: -ms-flexbox;
     display: flex;
     justify-content: space-between;
@@ -1152,6 +1140,13 @@ footer > .footer_logo{
     width: 20%;
     text-align: center;
 }
+
+.footer_logo_img{
+    width: 200px;
+    margin: 0 auto;
+}
+
+.footer_logo_img img{width: 100%;}
 
 footer > .footer_logo > a{
     font-family: 'Roboto-Regular', sans-serif;
@@ -1166,7 +1161,10 @@ footer > .footer_logo > a{
     nav ul > li > a{font-size: 35px;}
 } */
 @media only screen and (min-width: 1750px){
-    nav > .logo, nav ul > li > a{
+    nav > .logo{
+        padding: 14px 0;
+    }
+    nav ul > li > a{
         padding: 24px 0 !important;
     }
     nav > .logo > a{
@@ -1185,6 +1183,17 @@ footer > .footer_logo > a{
     .skill_header h3{
         font-size: 35px;
         line-height: 37px;
+    }
+    .slider_nav .slick-arrow.slick_left {
+        left: 22px;
+    }
+    .slider_nav .slick-arrow.slick_right {
+        right: 22px;
+    }
+    .slider_area > a {
+        font-size: 17px;
+        right: 2%;
+        top: 6%;
     }
     .selectpickers, .selectpickers span{
         font-size: 21.58px;
@@ -1224,8 +1233,13 @@ footer > .footer_logo > a{
         margin-bottom: 18px;
     }
     .slider_for .single_slider_item.slick-active h2{font-size: 53px}
-    .slider_for .single_slider_item h2{font-size: 47px}
-    .slider_for .single_slider_item h3{font-size: 52px;}
+    .slider_for .single_slider_item h2 {
+        font-size: 40px;
+    }
+    .slider_for .single_slider_item h3{font-size: 39px;}
+    .slider_for .single_slider_item.slick-active h3{
+        font-size: 52px;
+    }
     .learning_body {padding: 42px 22px 51px 32px}
     .learning_bodyInnr {padding: 48px 31px 73px 48px}
     .learning_head .skill_select .select_skill, .learning_head .search_skill form input{
@@ -1240,9 +1254,12 @@ footer > .footer_logo > a{
         padding-left: 25px;
     }
     .learning_head .search_skill form input{font-size: 26.8px}
-    .variries_skill{height: 467px;}
+    .variries_skill{height: 445px;}
     .single_varities_skill .coatching_name h5{font-size: 34.55px;}
     .single_varities_skill .view_or_request a{font-size: 20.73px;}
+    .single_varities_skill .select_or_assign .roadmap_name {
+        width: 82%;
+    }
     .single_varities_skill .select_or_assign .roadmap_name p{font-size: 20.73px;}
     .single_varities_skill .select_or_assign .roadmap_name .select_skill, .single_varities_skill .select_or_assign .roadmap_name .select_skill span{font-size: 20.73px;}
     .single_varities_skill .select_or_assign a{font-size: 20.73px;}
